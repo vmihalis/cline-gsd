@@ -137,6 +137,17 @@ Insert urgent work as decimal phase between existing phases.
 Usage: `/gsd:insert-phase 7 "Fix critical auth bug"`
 Result: Creates Phase 7.1
 
+**`/gsd:remove-phase <number>`**
+Remove a future phase and renumber subsequent phases.
+
+- Deletes phase directory and all references
+- Renumbers all subsequent phases to close the gap
+- Only works on future (unstarted) phases
+- Git commit preserves historical record
+
+Usage: `/gsd:remove-phase 17`
+Result: Phase 17 deleted, phases 18-20 become 17-19
+
 ### Milestone Management
 
 **`/gsd:discuss-milestone`**

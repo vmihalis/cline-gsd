@@ -307,6 +307,7 @@ You're never locked in. The system adapts.
 | `/gsd:new-milestone [name]`       | Create new milestone with phases                              |
 | `/gsd:add-phase`                  | Append phase to roadmap                                       |
 | `/gsd:insert-phase [N]`           | Insert urgent work                                            |
+| `/gsd:remove-phase [N]`           | Remove future phase, renumber subsequent                      |
 | `/gsd:discuss-phase [N]`          | Gather context before planning                                |
 | `/gsd:research-phase [N]`         | Deep ecosystem research for niche domains                     |
 | `/gsd:list-phase-assumptions [N]` | See what Claude thinks before you correct it                  |
