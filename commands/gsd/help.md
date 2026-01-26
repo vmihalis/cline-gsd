@@ -123,6 +123,31 @@ Execute all plans in a phase.
 
 Usage: `/gsd:execute-phase 5`
 
+### Autonomous Execution
+
+**`/gsd:autopilot`**
+Fully automated milestone execution.
+
+- Generates shell script that runs in separate terminal
+- Each phase gets fresh 200k context via `claude -p`
+- Loops: plan → execute → verify → handle gaps → next phase
+- Safe to interrupt and resume (state persists in `.planning/`)
+- Tracks cost and enforces budget limits
+
+Usage: `/gsd:autopilot`
+Then run: `bash .planning/autopilot.sh`
+
+**`/gsd:checkpoints`**
+Review and complete pending checkpoints from autopilot.
+
+- Interactive guided flow (no flags needed)
+- Shows human tasks created when plans need manual intervention
+- Checkpoints give instructions ("add these env vars") not data requests
+- Options: Done / Skip / Later
+- Approved checkpoints continue on next autopilot run
+
+Usage: `/gsd:checkpoints`
+
 ### Quick Mode
 
 **`/gsd:quick`**
@@ -359,6 +384,11 @@ Usage: `/gsd:join-discord`
 │   └── done/             # Completed todos
 ├── debug/                # Active debug sessions
 │   └── resolved/         # Archived resolved issues
+├── checkpoints/          # Autopilot checkpoint queue
+│   ├── pending/          # Awaiting human action
+│   ├── approved/         # Ready for continuation
+│   └── processed/        # Completed (audit trail)
+├── logs/                 # Autopilot execution logs
 ├── codebase/             # Codebase map (brownfield projects)
 │   ├── STACK.md          # Languages, frameworks, dependencies
 │   ├── ARCHITECTURE.md   # Patterns, layers, data flow
@@ -453,6 +483,19 @@ Example config:
 /gsd:complete-milestone 1.0.0
 /clear
 /gsd:new-milestone  # Start next milestone (questioning → research → requirements → roadmap)
+```
+
+**Running autonomously (fire and forget):**
+
+```
+/gsd:autopilot                  # Generate autopilot script
+# In separate terminal:
+bash .planning/autopilot.sh     # Run attached (see output live)
+# Or for overnight runs:
+nohup bash .planning/autopilot.sh > .planning/logs/autopilot.log 2>&1 &
+
+# Check on checkpoints anytime:
+/gsd:checkpoints                # Handle any tasks needing human input
 ```
 
 **Capturing ideas during work:**
