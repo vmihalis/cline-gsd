@@ -60,6 +60,28 @@ fi
 trap "rmdir '$LOCK_DIR' 2>/dev/null" EXIT INT TERM
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Cross-platform helpers
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ISO timestamp (works on both GNU and BSD date)
+iso_timestamp() {
+  date '+%Y-%m-%dT%H:%M:%S%z'
+}
+
+# Safe arithmetic that doesn't require bc
+# Usage: safe_calc "expression" (supports +, -, *, / with integers)
+# For decimals, falls back to bc if available, otherwise integer approximation
+safe_calc() {
+  local expr="$1"
+  if command -v bc &>/dev/null; then
+    echo "$expr" | bc
+  else
+    # Integer-only fallback (loses decimal precision)
+    echo $(( ${expr%.*} ))
+  fi
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Logging & Notifications
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -109,7 +131,7 @@ update_autopilot_state() {
   # Update or create Autopilot section in STATE.md
   if grep -q "## Autopilot" "$STATE_FILE" 2>/dev/null; then
     # Update existing section (using temp file for portability)
-    awk -v mode="$mode" -v phase="$phase" -v remaining="$remaining" -v error="$error" -v ts="$(date -Iseconds)" '
+    awk -v mode="$mode" -v phase="$phase" -v remaining="$remaining" -v error="$error" -v ts="$(iso_timestamp)" '
       /^## Autopilot/,/^## / {
         if (/^- \*\*Mode:\*\*/) { print "- **Mode:** " mode; next }
         if (/^- \*\*Current Phase:\*\*/) { print "- **Current Phase:** " phase; next }
@@ -126,12 +148,12 @@ update_autopilot_state() {
 ## Autopilot
 
 - **Mode:** $mode
-- **Started:** $(date -Iseconds)
+- **Started:** $(iso_timestamp)
 - **Current Phase:** $phase
 - **Phases Remaining:** $remaining
 - **Checkpoints Pending:** (none)
 - **Last Error:** $error
-- **Updated:** $(date -Iseconds)
+- **Updated:** $(iso_timestamp)
 EOF
   fi
 }
@@ -141,7 +163,8 @@ EOF
 # ─────────────────────────────────────────────────────────────────────────────
 
 TOTAL_TOKENS=0
-TOTAL_COST=0
+TOTAL_COST="0.00"
+TOTAL_COST_CENTS=0
 
 track_cost() {
   local log_file="$1"
@@ -152,26 +175,35 @@ track_cost() {
 
   if [ "$tokens" -gt 0 ]; then
     TOTAL_TOKENS=$((TOTAL_TOKENS + tokens))
-    # Rough cost estimate: $3/1M input, $15/1M output, assume 60% output
-    local cost=$(echo "scale=2; $tokens * 0.0000108" | bc)
-    TOTAL_COST=$(echo "scale=2; $TOTAL_COST + $cost" | bc)
+
+    # Cost estimate: ~$0.01 per 1000 tokens (rough average)
+    # Using integer math: cost in cents = tokens / 100, then convert to dollars
+    local cost_cents=$((tokens / 100))
+    local cost_dollars=$((cost_cents / 100))
+    local cost_remainder=$((cost_cents % 100))
+    local cost=$(printf "%d.%02d" $cost_dollars $cost_remainder)
+
+    # Accumulate total (in cents for precision)
+    TOTAL_COST_CENTS=$((TOTAL_COST_CENTS + cost_cents))
+    local total_dollars=$((TOTAL_COST_CENTS / 100))
+    local total_remainder=$((TOTAL_COST_CENTS % 100))
+    TOTAL_COST=$(printf "%d.%02d" $total_dollars $total_remainder)
 
     log "COST" "Phase $phase: ${tokens} tokens (~\$${cost})"
   fi
 
-  # Budget check
+  # Budget check (convert budget to cents for comparison)
   if [ "$BUDGET_LIMIT" -gt 0 ]; then
-    local exceeded=$(echo "$TOTAL_COST > $BUDGET_LIMIT" | bc)
-    if [ "$exceeded" -eq 1 ]; then
+    local budget_cents=$((BUDGET_LIMIT * 100))
+    if [ "$TOTAL_COST_CENTS" -gt "$budget_cents" ]; then
       notify "Budget exceeded: \$${TOTAL_COST} / \$${BUDGET_LIMIT}" "error"
       update_autopilot_state "paused" "$phase" "${PHASES[*]}" "budget_exceeded"
       exit 0
     fi
 
     # Warning at 80%
-    local warning_threshold=$(echo "$BUDGET_LIMIT * 0.8" | bc)
-    local near_limit=$(echo "$TOTAL_COST > $warning_threshold" | bc)
-    if [ "$near_limit" -eq 1 ]; then
+    local warning_threshold=$((budget_cents * 80 / 100))
+    if [ "$TOTAL_COST_CENTS" -gt "$warning_threshold" ]; then
       notify "Budget warning: \$${TOTAL_COST} / \$${BUDGET_LIMIT} (80%)" "warning"
     fi
   fi
