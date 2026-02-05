@@ -52,7 +52,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Cross-platform agent spawning module and documentation
+- [x] 02-01-PLAN.md — Cross-platform agent spawning module and documentation
 - [ ] 02-02-PLAN.md — Output verification, collection, and integration test
 
 ### Phase 3: State Management
@@ -162,7 +162,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Installation & Foundation | 3/3 | Complete | 2026-02-05 |
-| 2. Agent Infrastructure | 0/2 | Planned | - |
+| 2. Agent Infrastructure | 1/2 | In progress | - |
 | 3. State Management | 0/3 | Not started | - |
 | 4. New Project Workflow | 0/2 | Not started | - |
 | 5. Codebase Mapping | 0/2 | Not started | - |
