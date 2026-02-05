@@ -34,6 +34,7 @@
   "scripts": {
     "test:agents": "node scripts/test-agent-infra.js",
     "test:map-codebase": "node scripts/test-map-codebase.js",
+    "test:plan-phase": "node scripts/test-plan-phase.js",
     "test:project-init": "node scripts/test-project-init.js",
     "test:state": "node scripts/test-state.js"
   },
