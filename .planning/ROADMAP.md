@@ -65,12 +65,12 @@ Plans:
   3. ROADMAP.md contains phases with success criteria
   4. PLAN.md files contain atomic task breakdowns
   5. Progress bar in STATE.md reflects actual completion percentage
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: Directory structure and template files
-- [ ] 03-02: STATE.md lifecycle (create, read, update)
-- [ ] 03-03: ROADMAP.md and PLAN.md management
+- [ ] 03-01-PLAN.md — Directory initialization and template file creation
+- [ ] 03-02-PLAN.md — State file parsing and reading functions
+- [ ] 03-03-PLAN.md — State update operations and integration test
 
 ### Phase 4: New Project Workflow
 **Goal**: Users can initialize new projects with structured questioning
