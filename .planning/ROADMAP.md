@@ -49,11 +49,11 @@ Plans:
   2. Spawned agents write their outputs to designated files (not stdout)
   3. Main context can `wait` for agents and collect their file outputs
   4. Agent spawning works reliably across platforms (Mac, Linux, Windows)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: CLI subagent spawning pattern
-- [ ] 02-02: File-based output collection and synthesis
+- [ ] 02-01-PLAN.md — Cross-platform agent spawning module and documentation
+- [ ] 02-02-PLAN.md — Output verification, collection, and integration test
 
 ### Phase 3: State Management
 **Goal**: Project state persists across sessions via .planning/ directory
@@ -162,7 +162,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Installation & Foundation | 3/3 | Complete | 2026-02-05 |
-| 2. Agent Infrastructure | 0/2 | Not started | - |
+| 2. Agent Infrastructure | 0/2 | Planned | - |
 | 3. State Management | 0/3 | Not started | - |
 | 4. New Project Workflow | 0/2 | Not started | - |
 | 5. Codebase Mapping | 0/2 | Not started | - |
