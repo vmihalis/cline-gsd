@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import ora from 'ora';
 import { success, error, warn, info, dim, cyan } from '../src/output.js';
-import { getPlatform, getClineConfigDir, getGsdCommandsDir } from '../src/platform.js';
+import { getPlatform, getClineWorkflowsDir, getGsdWorkflowsDir } from '../src/platform.js';
 import { checkClineCli } from '../src/cline-check.js';
 import { install } from '../src/installer.js';
 
@@ -73,7 +73,7 @@ function showHelp() {
   console.log(`    -f, --force    Force overwrite existing installation`);
   console.log(`    --version      Show version number`);
   console.log();
-  console.log(`  ${dim('After installation, run /gsd:health in Cline to verify.')}`);
+  console.log(`  ${dim('After installation, run /gsd-health.md in Cline to verify.')}`);
   console.log();
 }
 
@@ -123,7 +123,7 @@ async function main() {
   }
 
   // Step 3: Show target directory
-  const destDir = getGsdCommandsDir();
+  const destDir = getGsdWorkflowsDir();
   info(`Install location: ${cyan(destDir)}`);
 
   // Step 4: Copy workflow files
@@ -147,7 +147,7 @@ async function main() {
   // Step 6: Success message
   console.log();
   success('Installation complete!');
-  info(`Run ${cyan('/gsd:health')} in Cline to verify.`);
+  info(`Run ${cyan('/gsd-health.md')} in Cline to verify.`);
   console.log();
 }
 

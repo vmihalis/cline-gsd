@@ -7,7 +7,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
-import { getGsdCommandsDir } from './platform.js';
+import { getGsdWorkflowsDir } from './platform.js';
 
 // ESM pattern to get __dirname equivalent
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -78,13 +78,35 @@ export async function copyWorkflows(destDir, verbose = false) {
 }
 
 /**
- * Write VERSION file to destination directory
+ * Write GSD VERSION file to destination directory
  * @param {string} destDir - Destination directory
  */
 export async function writeVersion(destDir) {
-  const versionPath = path.join(destDir, 'VERSION');
+  const versionPath = path.join(destDir, 'gsd-VERSION');
   await fs.writeFile(versionPath, pkg.version, 'utf8');
   trackCreated(versionPath);
+}
+
+/**
+ * Remove existing GSD workflow files from destination
+ * @param {string} destDir - Destination directory
+ * @param {boolean} verbose - Show detailed output
+ */
+async function cleanGsdFiles(destDir, verbose = false) {
+  try {
+    const files = await fs.readdir(destDir);
+    for (const file of files) {
+      if (file.startsWith('gsd-')) {
+        const filePath = path.join(destDir, file);
+        await fs.rm(filePath, { force: true });
+        if (verbose) {
+          console.log(`    Removed: ${file}`);
+        }
+      }
+    }
+  } catch {
+    // Directory doesn't exist or can't read, that's fine
+  }
 }
 
 /**
@@ -96,20 +118,14 @@ export async function writeVersion(destDir) {
  */
 export async function install(options = {}) {
   const { verbose = false, force = false } = options;
-  const destDir = getGsdCommandsDir();
+  const destDir = getGsdWorkflowsDir();
 
   try {
-    // Check if destination exists
-    try {
-      await fs.access(destDir);
-      // Directory exists - clean install per CONTEXT.md
-      if (verbose) {
-        console.log(`    Removing existing installation...`);
-      }
-      await fs.rm(destDir, { recursive: true, force: true });
-    } catch {
-      // Directory doesn't exist, that's fine
+    // Clean existing GSD files (gsd-* prefix)
+    if (verbose) {
+      console.log(`    Checking for existing GSD workflows...`);
     }
+    await cleanGsdFiles(destDir, verbose);
 
     // Copy workflow files
     const filesInstalled = await copyWorkflows(destDir, verbose);

@@ -46,9 +46,22 @@ export function getClineConfigDir() {
 }
 
 /**
- * Get the GSD commands directory within Cline config
+ * Get the Cline workflows directory (where Cline looks for global workflows)
  * @returns {string}
  */
-export function getGsdCommandsDir() {
-  return path.join(getClineConfigDir(), 'commands', 'gsd');
+export function getClineWorkflowsDir() {
+  // Allow override via environment variable
+  if (process.env.CLINE_WORKFLOWS_DIR) {
+    return process.env.CLINE_WORKFLOWS_DIR;
+  }
+  // Cline looks for global workflows in ~/Documents/Cline/Workflows/
+  return path.join(os.homedir(), 'Documents', 'Cline', 'Workflows');
+}
+
+/**
+ * Get the GSD workflows directory (same as Cline workflows - GSD files have gsd- prefix)
+ * @returns {string}
+ */
+export function getGsdWorkflowsDir() {
+  return getClineWorkflowsDir();
 }
