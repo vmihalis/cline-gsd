@@ -130,12 +130,12 @@ Plans:
   3. Each completed task produces an atomic git commit
   4. Plans execute sequentially or in waves as configured
   5. SUMMARY.md is generated after plan completion
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 07-01: Execute-phase orchestration
-- [ ] 07-02: Atomic commit implementation
-- [ ] 07-03: Summary generation and state updates
+- [ ] 07-01-PLAN.md — Execute-phase helper module (plan discovery, wave grouping, commit builders, SUMMARY template, state updates)
+- [ ] 07-02-PLAN.md — Execute-phase Cline workflow (main-context execution with atomic commits)
+- [ ] 07-03-PLAN.md — Integration test and package.json update
 
 ### Phase 8: Verification & Polish
 **Goal**: Users can verify work and sync with upstream GSD
