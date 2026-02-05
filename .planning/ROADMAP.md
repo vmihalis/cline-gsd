@@ -113,12 +113,12 @@ Plans:
   3. Research agents run before planning when enabled in config
   4. Plan checker validates plans before execution
   5. Model orchestration uses cheaper models for research, quality for planning
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 06-01: Discuss-phase context gathering
-- [ ] 06-02: Plan-phase with research integration
-- [ ] 06-03: Plan validation and model orchestration
+- [ ] 06-01-PLAN.md — Discuss-phase helper module and workflow
+- [ ] 06-02-PLAN.md — Plan-phase orchestration module and workflow
+- [ ] 06-03-PLAN.md — Integration test and package.json update
 
 ### Phase 7: Execution Workflow
 **Goal**: Users can execute plans with atomic commits per task
