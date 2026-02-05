@@ -32,7 +32,8 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "test:agents": "node scripts/test-agent-infra.js"
+    "test:agents": "node scripts/test-agent-infra.js",
+    "test:state": "node scripts/test-state.js"
   },
   "dependencies": {
     "picocolors": "^1.1.1",
