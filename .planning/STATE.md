@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-05)
 
 **Core value:** Enable Cline users to build complex projects with structured, spec-driven workflow
-**Current focus:** Phase 5 - Codebase Mapping
+**Current focus:** Phase 5 - Codebase Mapping (Complete)
 
 ## Current Position
 
 Phase: 5 of 8 (Codebase Mapping)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-02-05 — Completed 05-01-PLAN.md
+Plan: 2 of 2 in current phase
+Status: Phase complete
+Last activity: 2026-02-05 — Completed 05-02-PLAN.md
 
-Progress: [█████░░░░░] 52%
+Progress: [██████░░░░] 57%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
+- Total plans completed: 12
 - Average duration: 2.3 min
-- Total execution time: 25 min
+- Total execution time: 27 min
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [█████░░░░░] 52%
 | 02 | 2 | 4 min | 2 min |
 | 03 | 3 | 8 min | 2.7 min |
 | 04 | 2 | 4 min | 2 min |
-| 05 | 1 | 2 min | 2 min |
+| 05 | 2 | 4 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-02 (3 min), 03-03 (3 min), 04-01 (2 min), 04-02 (2 min), 05-01 (2 min)
+- Last 5 plans: 03-03 (3 min), 04-01 (2 min), 04-02 (2 min), 05-01 (2 min), 05-02 (2 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -80,6 +80,8 @@ Recent decisions affecting current work:
 - Confirmation marker files as outputFile for agent spawn tracking [05-01]
 - Sequential fallback loops through prompts one-at-a-time when parallelization=false [05-01]
 - Workflow handles existing maps with refresh/skip options [05-01]
+- Do NOT test runMapping (spawns real processes); test orchestration in isolation [05-02]
+- Three pipeline scenarios (full/partial/empty) for comprehensive edge case coverage [05-02]
 
 ### Pending Todos
 
@@ -91,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-05 22:13 UTC
-Stopped at: Completed 05-01-PLAN.md
+Last session: 2026-02-05 22:19 UTC
+Stopped at: Completed 05-02-PLAN.md (Phase 5 complete)
 Resume file: None
