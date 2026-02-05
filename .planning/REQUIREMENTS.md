@@ -25,9 +25,9 @@ Requirements for initial release. Full port of GSD to Cline.
 
 ### Codebase Analysis
 
-- [ ] **MAP-01**: `/gsd:map-codebase` — spawn parallel mappers for brownfield analysis
-- [ ] **MAP-02**: Mappers write STACK.md, ARCHITECTURE.md, STRUCTURE.md, etc.
-- [ ] **MAP-03**: Mapping works via CLI subagents (`cline "prompt" &`)
+- [x] **MAP-01**: `/gsd:map-codebase` — spawn parallel mappers for brownfield analysis
+- [x] **MAP-02**: Mappers write STACK.md, ARCHITECTURE.md, STRUCTURE.md, etc.
+- [x] **MAP-03**: Mapping works via CLI subagents (`cline "prompt" &`)
 
 ### Verification & Debug
 
@@ -105,9 +105,9 @@ Deferred to future release.
 | STATE-05 | Phase 3 | Complete |
 | CMD-01 | Phase 4 | Complete |
 | CMD-04 | Phase 4 | Complete |
-| MAP-01 | Phase 5 | Pending |
-| MAP-02 | Phase 5 | Pending |
-| MAP-03 | Phase 5 | Pending |
+| MAP-01 | Phase 5 | Complete |
+| MAP-02 | Phase 5 | Complete |
+| MAP-03 | Phase 5 | Complete |
 | CMD-02 | Phase 6 | Pending |
 | CMD-05 | Phase 6 | Pending |
 | AGT-04 | Phase 6 | Pending |

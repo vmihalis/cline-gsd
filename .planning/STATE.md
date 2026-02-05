@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-02-05)
 
 **Core value:** Enable Cline users to build complex projects with structured, spec-driven workflow
-**Current focus:** Phase 5 - Codebase Mapping (Complete)
+**Current focus:** Phase 6 - Planning Workflow
 
 ## Current Position
 
