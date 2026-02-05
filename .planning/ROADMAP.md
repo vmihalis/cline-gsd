@@ -33,12 +33,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Installer warns if Cline CLI is not found
   4. Workflows appear in user's Cline config directory after install
   5. User can run `/gsd:health` and see confirmation that Cline-GSD is ready
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Package scaffolding and npx entry point
-- [ ] 01-02: Platform detection and Cline verification
-- [ ] 01-03: Workflow file installation and health check
+- [ ] 01-01-PLAN.md — Package scaffolding and npx entry point
+- [ ] 01-02-PLAN.md — Platform detection and Cline verification
+- [ ] 01-03-PLAN.md — Workflow file installation and health check
 
 ### Phase 2: Agent Infrastructure
 **Goal**: Cline can spawn parallel CLI subagents that write results to files
@@ -161,7 +161,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Installation & Foundation | 0/3 | Not started | - |
+| 1. Installation & Foundation | 0/3 | Planned | - |
 | 2. Agent Infrastructure | 0/2 | Not started | - |
 | 3. State Management | 0/3 | Not started | - |
 | 4. New Project Workflow | 0/2 | Not started | - |
