@@ -37,9 +37,9 @@ Requirements for initial release. Full port of GSD to Cline.
 
 ### Agent System
 
-- [ ] **AGT-01**: Parallel agent spawning via `cline "prompt" &` + `wait`
-- [ ] **AGT-02**: Agents write results to files (not stdout)
-- [ ] **AGT-03**: Parent collects and synthesizes agent outputs
+- [x] **AGT-01**: Parallel agent spawning via `cline "prompt" &` + `wait`
+- [x] **AGT-02**: Agents write results to files (not stdout)
+- [x] **AGT-03**: Parent collects and synthesizes agent outputs
 - [ ] **AGT-04**: Research agents run before planning (if enabled)
 - [ ] **AGT-05**: Plan checker validates plans before execution
 - [ ] **AGT-06**: Model orchestration — cheap models for research, quality for planning
@@ -96,9 +96,9 @@ Deferred to future release.
 | INST-05 | Phase 1 | Complete |
 | SYNC-01 | Phase 1 | Complete |
 | SYNC-03 | Phase 1 | Complete |
-| AGT-01 | Phase 2 | Pending |
-| AGT-02 | Phase 2 | Pending |
-| AGT-03 | Phase 2 | Pending |
+| AGT-01 | Phase 2 | Complete |
+| AGT-02 | Phase 2 | Complete |
+| AGT-03 | Phase 2 | Complete |
 | STATE-01 | Phase 3 | Pending |
 | STATE-02 | Phase 3 | Pending |
 | STATE-04 | Phase 3 | Pending |
