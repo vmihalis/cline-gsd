@@ -18,10 +18,10 @@ Requirements for initial release. Full port of GSD to Cline.
 ### Core Workflow Commands
 
 - [x] **CMD-01**: `/gsd:new-project` — questioning, PROJECT.md, config, requirements, roadmap
-- [ ] **CMD-02**: `/gsd:plan-phase N` — research + create PLAN.md for phase N
+- [x] **CMD-02**: `/gsd:plan-phase N` — research + create PLAN.md for phase N
 - [ ] **CMD-03**: `/gsd:execute-phase N` — run all plans in phase with atomic commits
 - [x] **CMD-04**: `/gsd:progress` — show project state, suggest next action
-- [ ] **CMD-05**: `/gsd:discuss-phase N` — gather context before planning
+- [x] **CMD-05**: `/gsd:discuss-phase N` — gather context before planning
 
 ### Codebase Analysis
 
@@ -40,9 +40,9 @@ Requirements for initial release. Full port of GSD to Cline.
 - [x] **AGT-01**: Parallel agent spawning via `cline "prompt" &` + `wait`
 - [x] **AGT-02**: Agents write results to files (not stdout)
 - [x] **AGT-03**: Parent collects and synthesizes agent outputs
-- [ ] **AGT-04**: Research agents run before planning (if enabled)
-- [ ] **AGT-05**: Plan checker validates plans before execution
-- [ ] **AGT-06**: Model orchestration — cheap models for research, quality for planning
+- [x] **AGT-04**: Research agents run before planning (if enabled)
+- [x] **AGT-05**: Plan checker validates plans before execution
+- [x] **AGT-06**: Model orchestration — cheap models for research, quality for planning
 
 ### State Management
 
@@ -108,11 +108,11 @@ Deferred to future release.
 | MAP-01 | Phase 5 | Complete |
 | MAP-02 | Phase 5 | Complete |
 | MAP-03 | Phase 5 | Complete |
-| CMD-02 | Phase 6 | Pending |
-| CMD-05 | Phase 6 | Pending |
-| AGT-04 | Phase 6 | Pending |
-| AGT-05 | Phase 6 | Pending |
-| AGT-06 | Phase 6 | Pending |
+| CMD-02 | Phase 6 | Complete |
+| CMD-05 | Phase 6 | Complete |
+| AGT-04 | Phase 6 | Complete |
+| AGT-05 | Phase 6 | Complete |
+| AGT-06 | Phase 6 | Complete |
 | CMD-03 | Phase 7 | Pending |
 | EXEC-01 | Phase 7 | Pending |
 | EXEC-02 | Phase 7 | Pending |
@@ -131,4 +131,4 @@ Deferred to future release.
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-05 after roadmap creation*
+*Last updated: 2026-02-06 after Phase 6 completion*
