@@ -40,14 +40,14 @@ Enable Cline users to build complex projects with the same structured, spec-driv
 
 - Modifying Cline core — we adapt to Cline's existing capabilities
 - Waiting for `bee/subagents` branch — use CLI subagents now
-- VS Code extension integration — CLI-first approach
+- VS Code extension integration — CLI-only, requires `cline` command
 - Supporting agents that edit code — Cline CLI agents are read-only
 
 ## Context
 
 **Why this exists:** User is sponsored by Cline but loves the GSD workflow. Needs to use Cline but doesn't want to lose the structured development methodology.
 
-**Technical discovery:** Cline CLI already supports parallel agent execution via bash background jobs (`cline "prompt" &` + `wait`). This makes a near-direct port possible.
+**Technical discovery:** Cline CLI 2.0 supports parallel agent execution via bash background jobs (`cline -y "prompt" &` + `wait`). The `-y` flag enables headless/non-interactive mode. This makes a near-direct port possible.
 
 **Key architectural difference:**
 - Claude Code: `Task` tool spawns in-process agents with shared context
@@ -59,6 +59,7 @@ Enable Cline users to build complex projects with the same structured, spec-driv
 
 ## Constraints
 
+- **Cline CLI 2.0 required**: Users must have `cline` command installed (not just VS Code extension)
 - **Track upstream**: Must be able to pull improvements from `glittercowboy/get-shit-done`
 - **CLI subagent limitation**: Agents can research and write docs, but cannot edit code files
 - **Cline workflow system**: Simpler than Claude Code skills — workflows inject prompts, don't orchestrate
