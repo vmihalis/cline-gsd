@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: State Management** - .planning/ directory, STATE.md, ROADMAP.md tracking
 - [x] **Phase 4: New Project Workflow** - /gsd:new-project command with questioning and config
 - [x] **Phase 5: Codebase Mapping** - /gsd:map-codebase for brownfield projects
-- [ ] **Phase 6: Planning Workflow** - /gsd:plan-phase with research and plan validation
+- [x] **Phase 6: Planning Workflow** - /gsd:plan-phase with research and plan validation
 - [ ] **Phase 7: Execution Workflow** - /gsd:execute-phase with atomic commits
 - [ ] **Phase 8: Verification & Polish** - /gsd:verify-work, /gsd:debug, upstream sync
 
@@ -116,9 +116,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Discuss-phase helper module and workflow
-- [ ] 06-02-PLAN.md — Plan-phase orchestration module and workflow
-- [ ] 06-03-PLAN.md — Integration test and package.json update
+- [x] 06-01-PLAN.md — Discuss-phase helper module and workflow
+- [x] 06-02-PLAN.md — Plan-phase orchestration module and workflow
+- [x] 06-03-PLAN.md — Integration test and package.json update
 
 ### Phase 7: Execution Workflow
 **Goal**: Users can execute plans with atomic commits per task
