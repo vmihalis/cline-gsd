@@ -6,7 +6,10 @@
  */
 
 import { createRequire } from 'node:module';
+import ora from 'ora';
 import { success, error, warn, info, dim, cyan } from '../src/output.js';
+import { getPlatform, getClineConfigDir } from '../src/platform.js';
+import { checkClineCli } from '../src/cline-check.js';
 
 // ESM pattern to read package.json
 const require = createRequire(import.meta.url);
@@ -71,26 +74,55 @@ function showVersion() {
   console.log(pkg.version);
 }
 
-// Main
-const args = parseArgs(process.argv.slice(2));
+// Main installation function
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
 
-if (args.version) {
-  showVersion();
-  process.exit(0);
+  if (args.version) {
+    showVersion();
+    process.exit(0);
+  }
+
+  showBanner();
+
+  if (args.help) {
+    showHelp();
+    process.exit(0);
+  }
+
+  if (args.verbose) {
+    info('Verbose mode enabled');
+  }
+  if (args.force) {
+    info('Force mode enabled');
+  }
+
+  // Step 1: Detect platform
+  const spinner = ora('Detecting platform...').start();
+  const platform = getPlatform();
+  spinner.succeed(`Platform: ${cyan(platform)}`);
+
+  // Step 2: Check Cline CLI
+  spinner.start('Checking for Cline CLI...');
+  const clineStatus = await checkClineCli();
+  if (clineStatus.installed) {
+    spinner.succeed(`Cline CLI found (${cyan(clineStatus.version || 'version unknown')})`);
+  } else {
+    spinner.warn('Cline CLI not found');
+    warn('Cline-GSD requires Cline CLI. Install it first:');
+    info('  npm install -g @anthropics/cline');
+    info('Continuing installation anyway...');
+  }
+
+  // Step 3: Show target directory
+  const configDir = getClineConfigDir();
+  info(`Install location: ${cyan(configDir)}`);
+
+  // TODO: Copy workflow files (Plan 03)
 }
 
-showBanner();
-
-if (args.help) {
-  showHelp();
-  process.exit(0);
-}
-
-// Placeholder for installation logic (next plan)
-info('Installation starting...');
-if (args.verbose) {
-  info('Verbose mode enabled');
-}
-if (args.force) {
-  info('Force mode enabled');
-}
+// Run main
+main().catch((err) => {
+  error(err.message);
+  process.exit(1);
+});
