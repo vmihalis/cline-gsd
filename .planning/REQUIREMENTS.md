@@ -31,9 +31,9 @@ Requirements for initial release. Full port of GSD to Cline.
 
 ### Verification & Debug
 
-- [ ] **VER-01**: `/gsd:verify-work` — post-execution UAT verification
-- [ ] **VER-02**: `/gsd:debug` — systematic debugging with checkpoint state
-- [ ] **VER-03**: Verifier checks must-haves against actual codebase
+- [x] **VER-01**: `/gsd:verify-work` — post-execution UAT verification
+- [x] **VER-02**: `/gsd:debug` — systematic debugging with checkpoint state
+- [x] **VER-03**: Verifier checks must-haves against actual codebase
 
 ### Agent System
 
@@ -61,9 +61,9 @@ Requirements for initial release. Full port of GSD to Cline.
 
 ### Upstream Compatibility
 
-- [ ] **SYNC-01**: File structure compatible with upstream GSD
-- [ ] **SYNC-02**: Can pull improvements from glittercowboy/get-shit-done
-- [ ] **SYNC-03**: Templates and references match upstream format
+- [x] **SYNC-01**: File structure compatible with upstream GSD
+- [x] **SYNC-02**: Can pull improvements from glittercowboy/get-shit-done
+- [x] **SYNC-03**: Templates and references match upstream format
 
 ## v2 Requirements
 
@@ -119,10 +119,10 @@ Deferred to future release.
 | EXEC-03 | Phase 7 | Complete |
 | EXEC-04 | Phase 7 | Complete |
 | STATE-03 | Phase 7 | Complete |
-| VER-01 | Phase 8 | Pending |
-| VER-02 | Phase 8 | Pending |
-| VER-03 | Phase 8 | Pending |
-| SYNC-02 | Phase 8 | Pending |
+| VER-01 | Phase 8 | Complete |
+| VER-02 | Phase 8 | Complete |
+| VER-03 | Phase 8 | Complete |
+| SYNC-02 | Phase 8 | Complete |
 
 **Coverage:**
 - v1 requirements: 34 total
@@ -131,4 +131,4 @@ Deferred to future release.
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-06 after Phase 7 completion*
+*Last updated: 2026-02-06 after Phase 8 completion*

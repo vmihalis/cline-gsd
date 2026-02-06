@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5: Codebase Mapping** - /gsd:map-codebase for brownfield projects
 - [x] **Phase 6: Planning Workflow** - /gsd:plan-phase with research and plan validation
 - [x] **Phase 7: Execution Workflow** - /gsd:execute-phase with atomic commits
-- [ ] **Phase 8: Verification & Polish** - /gsd:verify-work, /gsd:debug, upstream sync
+- [x] **Phase 8: Verification & Polish** - /gsd:verify-work, /gsd:debug, upstream sync
 
 ## Phase Details
 
@@ -151,8 +151,8 @@ Plans:
 
 Plans:
 - [x] 08-01-PLAN.md — Verify-work helper module and UAT workflow
-- [ ] 08-02-PLAN.md — Debug-phase helper module and debugging workflow
-- [ ] 08-03-PLAN.md — Upstream sync, integration test, and package.json update
+- [x] 08-02-PLAN.md — Debug-phase helper module and debugging workflow
+- [x] 08-03-PLAN.md — Upstream sync, integration test, and package.json update
 
 ## Progress
 
@@ -168,7 +168,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 5. Codebase Mapping | 2/2 | Complete | 2026-02-05 |
 | 6. Planning Workflow | 3/3 | Complete | 2026-02-05 |
 | 7. Execution Workflow | 3/3 | Complete | 2026-02-06 |
-| 8. Verification & Polish | 1/3 | In progress | - |
+| 8. Verification & Polish | 3/3 | Complete | 2026-02-06 |
 
 ---
 *Roadmap created: 2026-02-05*
