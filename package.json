@@ -33,6 +33,7 @@
   },
   "scripts": {
     "test:agents": "node scripts/test-agent-infra.js",
+    "test:execute-phase": "node scripts/test-execute-phase.js",
     "test:map-codebase": "node scripts/test-map-codebase.js",
     "test:plan-phase": "node scripts/test-plan-phase.js",
     "test:project-init": "node scripts/test-project-init.js",
