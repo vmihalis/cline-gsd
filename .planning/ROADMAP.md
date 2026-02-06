@@ -147,12 +147,12 @@ Plans:
   3. Verifier checks must-haves against actual codebase
   4. Repository can pull improvements from glittercowboy/get-shit-done
   5. Upstream changes can be merged without breaking Cline-specific code
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 08-01: Verify-work command and UAT checks
-- [ ] 08-02: Debug command with checkpoints
-- [ ] 08-03: Upstream sync mechanism and documentation
+- [ ] 08-01-PLAN.md — Verify-work helper module and UAT workflow
+- [ ] 08-02-PLAN.md — Debug-phase helper module and debugging workflow
+- [ ] 08-03-PLAN.md — Upstream sync, integration test, and package.json update
 
 ## Progress
 
