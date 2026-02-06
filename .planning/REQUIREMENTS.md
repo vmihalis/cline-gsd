@@ -19,7 +19,7 @@ Requirements for initial release. Full port of GSD to Cline.
 
 - [x] **CMD-01**: `/gsd:new-project` — questioning, PROJECT.md, config, requirements, roadmap
 - [x] **CMD-02**: `/gsd:plan-phase N` — research + create PLAN.md for phase N
-- [ ] **CMD-03**: `/gsd:execute-phase N` — run all plans in phase with atomic commits
+- [x] **CMD-03**: `/gsd:execute-phase N` — run all plans in phase with atomic commits
 - [x] **CMD-04**: `/gsd:progress` — show project state, suggest next action
 - [x] **CMD-05**: `/gsd:discuss-phase N` — gather context before planning
 
@@ -48,16 +48,16 @@ Requirements for initial release. Full port of GSD to Cline.
 
 - [x] **STATE-01**: `.planning/` directory structure matches GSD
 - [x] **STATE-02**: STATE.md tracks project memory across sessions
-- [ ] **STATE-03**: Atomic git commits per completed task
+- [x] **STATE-03**: Atomic git commits per completed task
 - [x] **STATE-04**: ROADMAP.md with phases and success criteria
 - [x] **STATE-05**: PLAN.md with atomic task breakdown
 
 ### Execution Model
 
-- [ ] **EXEC-01**: Execution happens in main Cline context (not subagents)
-- [ ] **EXEC-02**: Plans execute sequentially or in waves
-- [ ] **EXEC-03**: Each task produces atomic commit
-- [ ] **EXEC-04**: SUMMARY.md generated after plan completion
+- [x] **EXEC-01**: Execution happens in main Cline context (not subagents)
+- [x] **EXEC-02**: Plans execute sequentially or in waves
+- [x] **EXEC-03**: Each task produces atomic commit
+- [x] **EXEC-04**: SUMMARY.md generated after plan completion
 
 ### Upstream Compatibility
 
@@ -113,12 +113,12 @@ Deferred to future release.
 | AGT-04 | Phase 6 | Complete |
 | AGT-05 | Phase 6 | Complete |
 | AGT-06 | Phase 6 | Complete |
-| CMD-03 | Phase 7 | Pending |
-| EXEC-01 | Phase 7 | Pending |
-| EXEC-02 | Phase 7 | Pending |
-| EXEC-03 | Phase 7 | Pending |
-| EXEC-04 | Phase 7 | Pending |
-| STATE-03 | Phase 7 | Pending |
+| CMD-03 | Phase 7 | Complete |
+| EXEC-01 | Phase 7 | Complete |
+| EXEC-02 | Phase 7 | Complete |
+| EXEC-03 | Phase 7 | Complete |
+| EXEC-04 | Phase 7 | Complete |
+| STATE-03 | Phase 7 | Complete |
 | VER-01 | Phase 8 | Pending |
 | VER-02 | Phase 8 | Pending |
 | VER-03 | Phase 8 | Pending |
@@ -131,4 +131,4 @@ Deferred to future release.
 
 ---
 *Requirements defined: 2026-02-05*
-*Last updated: 2026-02-06 after Phase 6 completion*
+*Last updated: 2026-02-06 after Phase 7 completion*
